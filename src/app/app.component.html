@@ -1,0 +1,35 @@
+
+<p>{{now | date: 'medium'}}</p>
+<p>{{money | currency:'EUR'}}</p>
+<p>{{profile | PipeContent}}</p>
+<!-- <p>{{money | PipeContent}}</p> -->
+<button 
+  (click)="changeName()"
+>{{ nameButton | PipeDirection}}</button>
+
+<button 
+  (click)="changeName()"
+>{{ nameButton | PipeDirection: "set" : "Change" }}</button>
+
+<!-- Default is PipeDirection not Parameters, if Page different add
+  Parameters will get value set.
+ -->
+
+<div class="box">
+  <ul>
+    <li *ngFor="let item of users">
+      {{item.name}} - {{item.age}}
+    </li>
+  </ul>
+   <ul>
+     <li *ngFor="let item of users | isPipeAdult">
+      {{item.name}} - {{item.age}}
+    </li>
+  </ul>
+</div>
+
+<div class="addList" ><br>
+  <input type="text" placeholder="name" [(ngModel)]="name"><br>
+  <input type="text" placeholder="age" [(ngModel)]="age"><br>
+  <button (click)="adUser()">add user</button>
+</div>
